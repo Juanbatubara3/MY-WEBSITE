@@ -5,9 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Kael Batubara</title>
+  <<title>Jam Real-Time</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+          margin-top: 50px;
+      }
+      #clock {
+          font-size: 48px;
+          margin-bottom: 20px;
+      }
+      #date {
+          font-size: 24px;
+      }
+  </style>
 </head>
+<body>
 
+  <div id="clock"></div>
+  <div id="date"></div>
+
+  <script>
+      function updateTime() {
+          const now = new Date();
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          const dateString = now.toLocaleDateString('id-ID', options);
+          const timeString = now.toLocaleTimeString('id-ID');
+
+          document.getElementById('clock').textContent = timeString;
+          document.getElementById('date').textContent = dateString;
+      }
+
+      setInterval(updateTime, 1000);
+      updateTime(); // Call it once to avoid delay
+  </script>
+
+</body>
+</html>
 <body>
   <!-- Header -->
   <section id="header">
